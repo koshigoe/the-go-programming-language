@@ -29,3 +29,13 @@ func PopCountEx23(x uint64) int {
 	}
 	return int(count)
 }
+
+// 練習問題 2.4 引数をビットシフトしながら最下位ビットの検査を 64 回繰り返す事でビット数を数える PopCount のバージョンを作成しなさい。テーブル参照を行うバージョンと性能を比較しなさい。
+func PopCountEx24(x uint64) int {
+	var count byte
+	for i := 0; i < 64; i++ {
+		count += byte(x&1)
+		x >>= 1
+	}
+	return int(count)
+}
