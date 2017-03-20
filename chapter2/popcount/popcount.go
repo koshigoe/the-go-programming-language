@@ -39,3 +39,13 @@ func PopCountEx24(x uint64) int {
 	}
 	return int(count)
 }
+
+// 練習問題 2.5 式 x&(x-1) は x で 1 が設定されている最下位ビットをクリアします。この事実を使ってビット数を数える PopCount のバージョンを作成し、その性能を評価しなさい。
+func PopCountEx25(x uint64) int {
+	count := 0
+	for x != 0 {
+		x = x & (x - 1)
+		count++
+	}
+	return count
+}
