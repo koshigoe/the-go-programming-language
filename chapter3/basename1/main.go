@@ -3,10 +3,12 @@ package main
 import (
 	"fmt"
 	"os"
+	"strings"
 )
 
 func main() {
 	fmt.Println(basename1(os.Args[1]))
+	fmt.Println(basename2(os.Args[1]))
 }
 
 // basename1 はディレクトリ要素と.接尾辞を取り除きます。
@@ -25,6 +27,15 @@ func basename1(s string) string {
 			s = s[:i]
 			break
 		}
+	}
+	return s
+}
+
+func basename2(s string) string {
+	slash := strings.LastIndex(s, "/") // "/" が見つからなければ -1
+	s = s[slash+1:]
+	if dot := strings.LastIndex(s, "."); dot >= 0 {
+		s = s[:dot]
 	}
 	return s
 }
