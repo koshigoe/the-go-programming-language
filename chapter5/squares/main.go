@@ -12,11 +12,4 @@ func squares() func() int {
 		return x * x
 	}
 }
-
-func main() {
-	f := squares()
-	fmt.Println(f()) // "1"
-	fmt.Println(f()) // "2"
-	fmt.Println(f()) // "9"
-	fmt.Println(f()) // "16"
 }
